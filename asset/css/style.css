@@ -1,0 +1,18 @@
+body{
+    background-color: rgb(107, 107, 107);
+}
+
+.fond{
+    /*background-color: rgb(107, 107, 107);*/
+    color: white;
+     background-image: url("../img/telecharger-streaming-netflix-768x399.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    
+}
+
+div{ 
+    padding: 1rem;
+}
+
