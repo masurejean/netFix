@@ -2,8 +2,9 @@
 session_start();
 require_once("../controleur/UserControleur.php");
 
-$userController = new UserController();
-$register = $userController->register($_POST);
+
+$userController = new UserController;
+$login = $userController->login($_POST,$_SESSION);
 
 ?>
 
@@ -20,25 +21,16 @@ $register = $userController->register($_POST);
     <div class="fond">
     <form action="" method="post">
         <div>
-            <input type="text" placeholder="login" name="login" 
+            <input type="text" placeholder="login  ou  email" name="login" 
             value = "<?= isset( $userController->post['login'])? $userController->post['login'] :""?>">
             <span><?=  isset($userController->errors['login']) ? $userController->errors['login']:"" ?></span>
         </div>
-        <div>
-            <input type="text" placeholder="email" name="email" 
-            value = "<?= isset( $userController->post['email'])? $userController->post['email'] :""?>">
-            <span><?=  isset($userController->errors['email']) ? $userController->errors['email']:"" ?></span>
-        </div>
-        <div>
+         <div>
             <input type="password" name="pwd" placeholder="psw" 
             value = "<?= isset( $userController->post['psw'])? $userController->post['psw'] :""?>">
             <span><?=  isset($userController->errors['psw']) ? $userController->errors['psw']:"" ?></span>
         </div>
-        <div>
-            <input type="password" name="confirmPwd" placeholder="psw" 
-            value = "<?= isset( $userController->post['confirmPwd'])? $userController->post['confirmPwd'] :""?>">
-            <span><?=  isset($userController->errors['confirmPwd']) ? $userController->errors['confirmPwd']:"" ?></span>
-        </div>
+        
         <div>
             <input type="submit" value="envoyer" name= "submited">
             

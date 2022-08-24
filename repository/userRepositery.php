@@ -17,16 +17,19 @@ class UserRepository {
         $query->execute();
     }
 
-    public function selectOnBy($value,$table,$field){
+    public function selectOnBy($value,$table,$field,$select){
         
         $pdo = new ConnectDB;
-        $sql ="SELECT $field FROM $table WHERE $field = :alias";
+        
+        $sql ="SELECT $select FROM $table WHERE $field = :alias";
         $query = $pdo->connect()->prepare($sql);
         $query->bindValue(':alias',$value, PDO::PARAM_STR);
         $query->execute();
         return $query->fetch();
 
     }
+
+    
 }
 
 ?>

@@ -1,5 +1,5 @@
 <?php
-
+session_start();
 require_once("../controleur/filmsController.php");
 require_once("../inc/ConnectDB.php");
 
