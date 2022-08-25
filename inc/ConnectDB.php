@@ -1,7 +1,4 @@
 <?php
-
-
-
 class ConnectDB
 {
     public function connect()
@@ -14,9 +11,10 @@ class ConnectDB
                     '',
                     array(
                         PDO::ATTR_ERRMODE => PDO::ERRMODE_WARNING,
-                        PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES utf8')
+                        PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES utf8'
+                    )
                 );
-            } catch(PDOException $e) {
+            } catch (PDOException $e) {
                 echo "Erreur SQL :", $e->getMessage();
             }
         }

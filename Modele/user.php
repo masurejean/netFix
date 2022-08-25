@@ -1,38 +1,39 @@
+
 <?php
-
-require_once("../repository/userRepositery.php");
-
+require_once("../repository/UserRepository.php");
 class User extends UserRepository
 {
-    public function __construct($email, $login, $pw, $pref, $role)
+    public function __construct($email,$login,$pwd, $pref,$role)
     {
-        $this->set_Email($email);
-        $this->set_Login($login);
-        $this->set_pw($pw);
-        $this->set_pref($pref);
-        $this->set_Role($role);
+        $this->setEmail($email);
+        $this->setLogin($login);
+        $this->setPwd($pwd);
+        $this->setPref($pref);
+        $this->setRole($role);
     }
+    // propriétés de ma class
     private $id_user;
     private $email;
     private $login;
-    private $pw;
+    private $pwd;
     private $pref;
     private $role;
+    // methodes (fonctions) de ma class
     /**
-     * fonction de verification des valeurs transmises  a mes setter
+     * Fonction de verification de valeurs transmises à mes setters
      *
-     * @param [type] $valeur
-     * @param [type] $champ
-     * @param [type] $propriete
-     * @param [type] $type
-     * @param [type] $empty
+     * @param [type] $valeur // valeur transmise à mon setter
+     * @param [string] $champ // nom du champ(colonne) de la table de ma BDD
+     * @param [type] $propriete // propriété de la class effectée
+     * @param [type] $type // type de la valeur acceptée : int,string,bool,array
+     * @param [type] $empty // true = la valeur ne peut être null
      * @return void
      */
-    public function verifControleSetter($valeur, $champ,  $type, $empty)
-    {
+    public function controlSetter($valeur, $champ, $type, $empty)
+    { // parametres de ma methode (fonction)
         if ($empty && !empty($valeur) && $empty !== "") {
-            /* */
-            if ($type ==="int"  && is_int($valeur)) {
+            //je laisse pisser
+            if ($type === "int" && is_int($valeur)) {
                 return $valeur;
             } elseif ($type === "string" && is_string($valeur)) {
                 return $valeur;
@@ -40,63 +41,48 @@ class User extends UserRepository
                 return $valeur;
             } elseif ($type === "array" && is_array($valeur)) {
                 return serialize($valeur);
-            }
-            else {
-                throw new Exception("$champ doit etre de type $type!");
+            } else {
+                throw new Exception("$champ doit êrte de type $type!");
             }
         } else {
-            throw new Exception("$champ ne doit pas etre vide");
+            throw new Exception("$champ ne doit pas être vide!");
         }
     }
-    public function get_Id_User()
-    {
+    public function getId_user(){
         return $this->id_user;
     }
-   public function set_Id_User($id_user)
-   {
-       $this->verifControleSetter($id_user, "id_user",  'int', true);
-   }
-
-    public function get_Email()
-    {
+    public function setId_user($id_user){
+        $this->controlSetter($id_user,"id_user",'int',true);
+    }
+    public function getEmail(){
         return $this->email;
     }
-    public function set_Email($email)
-    {   
-        $this->email = $this->verifControleSetter($email, "email",  'string', true);
+    public function setEmail($email){
+        $this->email = $this->controlSetter($email,"email",'string',true);
     }
-    public function get_Login()
-    {
+    public function getLogin(){
         return $this->login;
     }
-    public function set_Login($login)
-    {
-        $this->login = $this->verifControleSetter($login, "login",  'string', true);
-
+    public function setLogin($login){
+        $this->login = $this->controlSetter($login,"login",'string',true);
     }
-
-    public function get_Pw()
-    {
-        return $this->pw;
+    public function getPwd(){
+        return $this->pwd;
     }
-    public function set_Pw($pw)
-    {
-        $this->pw = $this->verifControleSetter($pw, "pw",  'string', true);
+    public function setPwd($pwd){
+        $this->pwd = $this->controlSetter($pwd,"pwd",'string',true);
     }
-    public function get_Pref()
-    {
-        return [$this->pref];
+    public function getPref(){
+        return unserialize($this->pref);
     }
-    public function set_Pref($pref)
-    {
-        $this->pref = $this->verifControleSetter($pref, "pref",  'array', true);
+    public function setPref($pref){
+        $this->pref = $this->controlSetter($pref,"pref",'array',true);
     }
-    public function get_Role()
-    {
-        return [$this->role];
+    public function getRole(){
+        $role = unserialize($this->role);
+        return $role;
     }
-    public function set_Role($role)
-    {
-        $this->role = $this->verifControleSetter($role, "role",  'array', true);
+    public function setRole($role){
+        $this->role = $this->controlSetter($role,"role",'array',true);
     }
 }
