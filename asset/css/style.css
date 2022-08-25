@@ -3,16 +3,16 @@ body{
     background: linear-gradient(270deg, rgba(131,58,180,1) 0%, rgba(253,29,29,1) 50%, rgba(252,176,69,1) 100%) !important;
 }
 
-.fond{
-    /*background-color: rgb(107, 107, 107);*/
+/*.fond{
+    background-color: rgb(107, 107, 107);
     min-height: 900px;
     color: white;
-     background-image: url("../img/telecharger-streaming-netflix-768x399.jpg");
+    background-image: url("../img/telecharger-streaming-netflix-768x399.jpg");
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
     
-}
+} */
 
 .user{
     color: yellowgreen;
