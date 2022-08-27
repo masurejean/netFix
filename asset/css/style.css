@@ -18,6 +18,23 @@ body{
     color: yellowgreen;
 }
 
+.card{
+    width: 25%;
+    margin: 25px;
+    align-items: center;
+}
+
+
+
+
+.plateauPresentation{
+    width: 90%;
+    display: flex;
+    flex-wrap: wrap;
+
+}
+
+
 
 
 

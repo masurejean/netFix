@@ -2,7 +2,8 @@
 
 
 require_once("../Modele/Film.php");
-class FilmController
+require_once("../repository/FilmRepository.php");
+class FilmController 
 {
     public static function getFilmById($id,$pdo)
     {
@@ -21,5 +22,15 @@ class FilmController
             $result['cast']
         );
         return $film;
+    }
+
+    public static function getArrayFilm(){
+
+        $filmArray = new FilmRepository;
+        return $filmArray-> getFilm();
+
+
+
+
     }
 }
