@@ -1,5 +1,6 @@
 <?php
 require_once("../inc/ConnectDB.php");
+// les class repository seront les class utilisées pour passer nos requetes
 class UserRepository
 {
 
@@ -24,4 +25,17 @@ class UserRepository
         $query->execute();
         return $query->fetch();
     }
+
+    public function insertPref($id_user , $genre)
+    {
+        $pdo =new ConnectDB;
+        $sql ="INSERT INTO user (pref) VALUES (:pref) WHERE id_user = :id_user";
+        $query = $pdo -> connect() ->prepare($sql);
+        $query->bindValue(":id_user" ,$id_user,PDO::PARAM_STR);
+        $query->bindValue(':pref', $genre, PDO::PARAM_STR);
+        $query->execute();
+
+    }
+
+    
 }

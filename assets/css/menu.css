@@ -1,0 +1,11 @@
+#formAuto{
+    position : relative;
+
+}
+
+#autocomplete{
+    position: absolute;
+    z-index: 10;
+    top:2rem;
+    background-color: black;
+}

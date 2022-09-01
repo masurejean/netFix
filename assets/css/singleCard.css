@@ -1,0 +1,8 @@
+.cardsFrame{
+    display: flex;
+    
+    
+}
+.card{
+    width: 80rem;
+}

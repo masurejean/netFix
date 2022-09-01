@@ -1,0 +1,9 @@
+.cardsFrame{
+    display: flex;
+    flex-wrap:wrap ;
+    justify-content: space-between;
+
+}
+.card{
+    max-width: 18rem;
+}
