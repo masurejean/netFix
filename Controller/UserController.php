@@ -93,7 +93,7 @@ class UserController extends FormVerif
             }
         }
     }
-    public static function addPref($id_movie){
+    public static function addPref($id_movie,$id_user){
         $userRepository = new UserRepository;
         $id_user = $_SESSION['user']['id_user'];
         $current_pref = unserialize($_SESSION['user']['pref']);

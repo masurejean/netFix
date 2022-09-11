@@ -14,7 +14,7 @@ if(isset($_GET['id_movie']) && !empty($_GET['id_movie'])){
 
 $films = FilmController::getFilmById(($_GET['id_movie']));
 $url = $routeController->getRoute("singleFilm");
-    
+$xhrUrl = $routeController->getRoute("addPref");    
 
 
 
@@ -34,7 +34,7 @@ $url = $routeController->getRoute("singleFilm");
     <script>
         const films = <?= $films ?>;
         const dCard = false;
-        const url = '<?= $url ?>';
+        const xhrUrl = '<?= $xhrUrl ?>';
     </script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
     <script crossorigin src="https://unpkg.com/react@16/umd/react.development.js"></script>
